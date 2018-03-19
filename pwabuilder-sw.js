@@ -1,63 +1,33 @@
-const CACHE_VERSION = 22;
-let CURRENT_CACHE = 'main-v' + CACHE_VERSION;
+//This is the "Offline page" service worker
 
-const cacheFiles = [
-  '/',
-  '/str/',
-  '/projects/',
-  '/offline/'
-];
+//Install stage sets up the offline page in the cahche and opens a new cache
+self.addEventListener('install', function(event) {
+  var offlinePage = new Request('offline.html');
+  event.waitUntil(
+  fetch(offlinePage).then(function(response) {
+    return caches.open('pwabuilder-offline').then(function(cache) {
+      console.log('[PWA Builder] Cached offline page during Install'+ response.url);
+      return cache.put(offlinePage, response);
+    });
+  }));
+});
 
-self.addEventListener('activate', evt =>
-  evt.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CURRENT_CACHE) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  )
-);
+//If any fetch fails, it will show the offline page.
+//Maybe this should be limited to HTML documents?
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    fetch(event.request).catch(function(error) {
+        console.error( '[PWA Builder] Network request Failed. Serving offline page ' + error );
+        return caches.open('pwabuilder-offline').then(function(cache) {
+          return cache.match('offline.html');
+      });
+    }));
+});
 
-self.addEventListener('install', evt =>
-  evt.waitUntil(
-    caches.open(CURRENT_CACHE)
-      .then(cache => {
-        return cache.addAll(cacheFiles);
-      })
-  )
-);
-
-const fromNetwork = (request, timeout) =>
-  new Promise( (fulfill, reject) => {
-    var timeoutId = setTimeout(reject, timeout);
-    fetch(request).then(response => {
-      clearTimeout(timeoutId);
-      fulfill(response);
-      update(request);
-    }, reject);
-  })
-
-const fromCache = request =>
-  caches.open(CURRENT_CACHE).then(cache =>
-    cache.match(request).then(matching =>
-      matching || cache.match('/offline/')
-    )
-  );
-
-const update = request =>
-  caches.open(CURRENT_CACHE).then(cache =>
-    fetch(request).then(response =>
-      cache.put(request, response)
-    )
-  );
-
-self.addEventListener('fetch', evt => {
-  evt.respondWith(fromNetwork(evt.request, 10000).catch(
-    () => fromCache(evt.request)
-  ));
-  evt.waitUntil(update(evt.request));
+//This is a event that can be fired from your page to tell the SW to update the offline page
+self.addEventListener('refreshOffline', function(response) {
+  return caches.open('pwabuilder-offline').then(function(cache) {
+    console.log('[PWA Builder] Offline page updated from refreshOffline event: '+ response.url);
+    return cache.put(offlinePage, response);
+  });
 });
