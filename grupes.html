@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Vilniaus kolegija EIF</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="BS3/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="BS3/assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="BS3/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="BS3/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <style>
+        .flexContainer {
+            display: flex;
+        }
+
+        .inputField {
+            flex: 1;
+        }
+    </style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        input[type=password], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            width:  100%;
+            border-radius: 4px;
+            cursor: pointer;
+            float: left;
+        }
+
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        .card .header {
+            padding: 15px 0px 0;
+        }
+
+
+
+    </style>
+    <script src="jquery-1.10.2.js"></script>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
+
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    Vilniaus kolegija, EIF
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li >
+                    <a href="index.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>PAKEITIMAI</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="destytojai.html">
+                        <i class="pe-7s-user"></i>
+                        <p>DĖSTYTOJAI</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="grupes.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>GRUPĖS</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="pe-7s-science"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="pe-7s-rocket"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Grupių sąrašas</a>
+                </div>
+                <div class="collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li class="separator hidden-lg hidden-md"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="card w3-container" id="prisijungimo_forma">
+            <form method="post">
+                <div class="row">
+
+                    <div class="col-75">
+                        <input type="text" id="firstname" name="firstname" placeholder="Prisijungimo vardas...">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-75">
+                        <input type="password" id="password" name="password" placeholder="Slaptažodis..">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <input class="w3-button w3-green w3-large" type="button" value="PRISIJUNGTI" id="prisijungti_prie_db" onclick="prisijungti()">
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="w3-container">
+
+
+                                <div style="font-weight: bolder; font-size: 20pt; color:#2e6da4"
+                                     id="pranesimai_informaciniai"></div>
+
+                                <div class="header flexContainer">
+
+                                    <!--<div class="flexContainer">-->
+                                    <!--<input type="password" class="inputField">-->
+                                    <!--<button type="submit"><img src="arrow.png" alt="Arrow Icon"></button>-->
+                                    <!--</div>-->
+                                    <input style="font-weight: bold; text-transform:uppercase" class="inputField"
+                                           name="grupe_ivedimo_pavadinimas"
+                                           id="grupe_input"
+                                           class="w3-input"
+                                           type="text"
+                                           style="width:30%"
+                                           placeholder="Nurodykite grupę arba išvardinkite kelias per kablelį: PI18A, PI18B, PI18C.">
+                                    <button type="submit" id="patvirtinti_prideti_grupe"
+                                            class="w3-button w3-green w3-large">
+                                        PRIDĖTI GRUPĘ</button>
+                                </div>
+
+                                <!--<div class="text-center">-->
+                                <!--&lt;!&ndash; Button HTML (to Trigger Modal) &ndash;&gt;-->
+                                <!--<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>-->
+                                <!--</div>-->
+
+
+                                <!--<div id="myModal" class="modal fade" style="display: none;">-->
+                                <!--<div class="modal-dialog modal-confirm">-->
+                                <!--<div class="modal-content">-->
+                                <!--<div class="modal-header">-->
+                                <!--<h4 class="modal-title">Confirmation</h4>-->
+                                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+                                <!--</div>-->
+                                <!--<div class="modal-body">-->
+                                <!--<p>Are you sure you want to delete your account? This action cannot be undone and you will be unable to recover any data.</p>-->
+                                <!--</div>-->
+                                <!--<div class="modal-footer">-->
+                                <!--<a href="#" class="btn btn-info" data-dismiss="modal">Cancel</a>-->
+                                <!--<a href="#" class="btn btn-danger">Yes, delete it!</a>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="content table-responsive table-full-width">-->
+
+
+
+
+
+                                <!--<div id="id01" class="w3-modal">-->
+                                <!--<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">-->
+
+                                <!--<div class="w3-center"><br>-->
+                                <!--<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>-->
+
+                                <!--</div>-->
+
+                                <!--<form class="w3-container">-->
+                                <!--<div class="w3-section">-->
+                                <!--<label><b>Įveskite grupės pavadinimą</b></label>-->
+                                <!--<input id="group_firestore_input_field"-->
+                                <!--class="w3-input w3-border w3-margin-bottom" type="text"-->
+                                <!--placeholder="Įveskite grupės arba kelių grupių pav. PI17A, PI17B"-->
+                                <!--name="grupe" required>-->
+
+
+                                <!--<button id="add_new_group_to_firestore"-->
+                                <!--class="w3-button w3-block w3-green w3-section w3-padding"-->
+                                <!--type="submit">PATVIRTINTI</button>-->
+
+                                <!--</div>-->
+
+                                <!--</form>-->
+
+                                <!--<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">-->
+                                <!--<button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>-->
+
+                                <!--</div>-->
+
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+
+
+
+
+
+
+
+                                <table id="firestore_pull_data" class="table table-hover table-striped">
+                                    <thead>
+                                    <th>ID</th>
+                                    <th>Name</th>
+
+                                    </thead>
+                                    <tbody>
+
+                                    <script>
+                                        // Initialize Firebase
+                                        var config = {
+                                            apiKey: "AIzaSyD-wYlcrhSHckPGXNJa2jiQn0AzSkjVEmg",
+                                            authDomain: "eaaweawe.firebaseapp.com",
+                                            databaseURL: "https://eaaweawe.firebaseio.com",
+                                            projectId: "eaaweawe",
+                                            storageBucket: "eaaweawe.appspot.com",
+                                            messagingSenderId: "125098122964"
+                                        };
+                                        firebase.initializeApp(config);
+                                        const db = firebase.database().ref("grupes");
+
+                                        const data = ["EI16S", "IS16S", "KS16S", "PI16S", "EI16A", "IS16A", "IS16B", "IS16A, IS16B", "IR16A", "PI16A", "PI16B", "PI16A, PI16B", "KS16A", "KS16B", "KS16A, KS16B","EI16B", "EV16A", "TK16A", "EI17S", "IS17S", "PI17S", "KS17S", "EI17A", "IS17A", "IS17B", "IS17C", "IS17A, IS17B, IS17C", "KS17A", "KS17B", "KS17A, KS17B", "PI17A", "PI17B", "PI17C", "PI17D", "PI17E", "PI17A, PI17B, PI17C, PI17D", "TS17A", "EI18S", "IS18S", "KS18S", "PI18S", "EI18A", "EI18B", "EI18A, EI18B", "IS18A", "IS18B", "IS18C", "IS18A, IS18B, IS18C", "KS18A", "PI18A", "PI18B", "PI18C", "PI18D", "PI18E", "PI18A, PI18B, PI18C, PI18D"];
+                                        var getIndex = 0;
+                                        // var leadsRef = database.ref('leads');
+                                        db.on('value', function(snapshot) {
+                                            $("table#firestore_pull_data tbody").text("");
+                                            snapshot.forEach(function(childSnapshot) {
+                                                var childData = childSnapshot.val();
+                                                console.log(childSnapshot.key);
+
+                                                $("table#firestore_pull_data tbody").append("<tr role='row' class='odd'><td class='sorting_1'>"+(getIndex++)+"</td><td>"+childData.pavadinimas+"</td><td>"+
+                                                    "<button class=\"btn btn-danger btn-fill btn-remove-key\" id='"+childSnapshot.key+"'>"+
+                                                    "IŠTRINTI</button>"+
+                                                    "</td></tr>");
+                                            });
+                                        });
+
+
+
+                                        function prisijungti(){
+                                            //document.getElementById("prisijungti_prie_db").addEventListener('click', e => {
+                                            const email = document.getElementById("firstname").value;
+                                            const pass = document.getElementById("password").value;
+                                            const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+                                            console.log('logged in');
+
+
+                                            promise.catch(e => {
+                                                console.log(e.massage)
+                                            });
+                                            //});
+                                        }
+
+
+
+                                        $(function() {
+
+                                            $("#prisijungimo_forma").hide();
+
+
+
+
+                                            const auth = firebase.auth();
+                                            if(auth != null){console.log("user not loged in")}
+                                            firebase.auth().onAuthStateChanged(user => {
+                                                if (user) {
+                                                    $("#prisijungimo_forma").hide();
+                                                    // $("#stateofuser").text("PRISIJUNGES");
+                                                    //document.getElementById("btnLogOut").classList.remove('hide');
+                                                } else {
+                                                    //$("#stateofuser").text("PRISIJUNKITE");
+                                                    //document.getElementById("btnLogOut").classList.add('hide');
+                                                    $("#prisijungimo_forma").show();
+                                                }
+                                            });
+
+
+
+
+
+
+
+
+
+
+
+                                            // PRIDETI GRUPE
+                                            document.getElementById('patvirtinti_prideti_grupe').onclick = function() {
+                                                const inputas = document.getElementById('grupe_input').value;
+
+                                                inputas.toUpperCase();
+                                                if (inputas !== null) {
+                                                    var r = confirm("Ar tikrai norite pridėti šią grupę: " + inputas.toUpperCase());
+                                                    if (r === true) {
+                                                        db.push({
+                                                            pavadinimas: ""+inputas.toUpperCase()
+                                                        });
+                                                        console.log("Group added succesfully!"+ inputas.toUpperCase());
+                                                        //$(".showMsg").click(function () {
+
+                                                        if(inputas.length < 7){
+                                                            $("#pranesimai_informaciniai").text("Grupė sėkmingai pridėta: " + inputas.toUpperCase()).fadeIn().delay(1500).fadeOut();
+                                                        }
+                                                        else {
+                                                            $("#pranesimai_informaciniai").text("Grupių sąrašas sėkmingai pridėtas: " +
+                                                                inputas.toUpperCase()).fadeIn().delay(1500).fadeOut();
+                                                        }
+                                                    } else {
+                                                        console.log("You pressed Cancel! No changes :)");
+                                                    }
+                                                }
+                                            };
+                                            document.getElementById("grupe_input")
+                                                .addEventListener("keyup", function(event) {
+                                                    event.preventDefault();
+                                                    if (event.keyCode === 13) {
+                                                        document.getElementById("patvirtinti_prideti_grupe").click();
+                                                    }
+                                                });
+                                            // END PRIDETI GRUPE
+
+
+                                            // Handler for .ready() called.
+
+
+
+
+
+
+
+
+
+
+
+                                            // ISTRINTI GRUPE
+                                            let remove = function (e) {
+                                                e.preventDefault();
+                                                // e.stopPropogation();
+                                                // var key = $(this).data('key');
+                                                let destID = this.id;  // iraso id
+                                                if (confirm('Ar tikrai norite ištrinti šį įrašą?')) {
+
+
+                                                    //console.log(cc);
+                                                    let playersRef = firebase.database().ref("grupes/");
+
+                                                    playersRef.once("value", function (data, prevChildKey) {
+                                                        playersRef.child('' + destID).remove()
+                                                            .then(function () {
+                                                                console.log("Remove succeeded.");
+                                                                //readAndDisplayData();
+
+                                                            })
+                                                            .catch(function (error) {
+                                                                console.log("Remove failed: " + error.message)
+                                                            });
+
+                                                    });
+                                                    // firebase.database().ref("movies").child(key).remove();
+                                                }
+                                            };
+                                            $(document).on('click', '.btn-remove-key', remove);
+
+
+                                        });
+                                        // PABAIGA ISTRINTI
+
+
+
+                                        //  function prisijungti() {
+
+                                        //}
+                                        // prisijungti();
+
+
+
+
+                                        // db.on('value', snap => {
+                                        //
+                                        //     snap.foreach(function (data) {
+                                        //            console.log(data.pavadinimas);
+                                        //     });
+                                        //
+                                        //
+                                        // });
+                                        // TODO PATAISYTI NUSKAITYMA
+
+                                        // var mas = [];
+                                        // db.on("value", function (snapshot) {
+                                        //     mas.push(snapshot.val());
+                                        //     // snapshot.forEach(function (data) {
+                                        //     //     console.log(data);
+                                        //     // });
+                                        //     mas.forEach(function (data) {
+                                        //         console.log(data.pavadinimas);
+                                        //         console.log(data.name);
+                                        //     });
+                                        // });
+
+
+
+
+
+
+
+
+
+
+
+                                        // $("#grupe_input").keydown(function (e) {
+                                        //     if (e.keyCode == 13) {
+                                        //         e.preventDefault();
+                                        //         $('input[name = "grupe_ivedimo_pavadinimas"]').trigger('click');
+                                        //     }
+                                        // });
+
+
+                                        // $("#grupe_input").keyup(function (e) {
+                                        //     if (e.which == 13) {
+                                        //         $('input[name="grupe_ivedimo_pavadinimas"]').trigger('click');
+                                        //     }
+                                        // });
+                                        //$("#grupe_input").css('background', 'transparent');
+
+                                        //confirm("Press a button!");
+
+                                        //db.update({ "name": "pi16" });
+
+
+
+
+                                        // db.collection("grupes").get().then(function (querySnapshot) {
+                                        //     querySnapshot.forEach(function (doc) {
+                                        //         $("table#firestore_pull_data tbody").append("<tr role='row' class='odd'><td class='sorting_1'>" + doc.id + "</td><td>" + doc.data().name
+                                        //             + "</td><td>" + "<button class=\"btn btn-danger btn-fill\">IŠTRINTI</button>" + "</td></tr>");
+                                        //     });
+                                        // });
+
+                                        // console.log('grupe prideta'+inputas)
+
+
+
+
+
+                                        //const tr = document.createElement("tr");
+                                        //const td = document.createElement("td");
+                                        //const txt = document.createTextNode("some value");
+
+
+                                        // data.forEach(element => {
+                                        //     var append = dbRef.doc(dbRef.id).set({
+                                        //         name: element
+                                        //     }).then(function(docRef) {
+                                        //         console.log("Document written with ID: ", dbRef.id);
+                                        //     }).catch(function(error) {
+                                        //         console.error("Error adding document: ", error);
+                                        //     });
+                                        // });
+                                        // db.collection("grupes").get().then(function(querySnapshot) {
+                                        //     querySnapshot.forEach(function(doc) {
+                                        //         // doc.data() is never undefined for query doc snapshots
+                                        //
+                                        //         $("table#firestore_pull_data tbody").append("<tr role='row' class='odd'><td class='sorting_1'>"+doc.id+"</td><td>"+doc.data().name
+                                        //             +"</td><td>"+"<button class=\"btn btn-danger btn-fill\">IŠTRINTI</button>"+"</td></tr>");
+                                        //
+                                        //         //td.appendChild(doc.data());
+                                        //         //tr.appendChild(td);
+                                        //         //document.getElementById("firestore_data").appendChild(tr);
+                                        //         //document.getElementById("firestore_data").innerHTML += "<tr><td>"+doc.data()+"</td></tr>";
+                                        //         //console.log(doc.id, " => ", doc.data().name);
+                                        //     });
+                                        // });
+
+
+
+                                    </script>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <p class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Marius Gžegoževskia, Vilniaus
+                    kolegija
+                </p>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="BS3/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="BS3/assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="BS3/assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="BS3/assets/js/bootstrap-notify.js"></script>
+
+
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="BS3/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="BS3/assets/js/demo.js"></script>
+
+
+</html>

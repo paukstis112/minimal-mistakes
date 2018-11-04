@@ -1,106 +1,862 @@
-<!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Dėstomų dalykų kurso medžiaga</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="manifest" href="/manifest.json"></link>
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
-		<!-- Wrapper -->
-			<div id="wrapper">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-				<!-- Header -->
-			
+    <title>Vilniaus kolegija EIF</title>
 
-			<header>
-				<center><h5>VK Elektronikos ir informatikos fakultetas, Lekt. Marius Gžegoževskis</h5></center>
-			</header>
-	
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-				
-							<section class="tiles">
-						
-								<article>
-									<span class="image">
-										<img src="images/java.png" alt="" />
-									</span>
-									<a href="https://eif-courses.github.io/java">
-					
-									</a>
-								</article>
-							
-								
-									<article>
-									<span class="image">
-											<img src="images/web_saugumas.png" alt="" />
-									</span>
-									<a href="https://eif-courses.github.io/security">
-							
-									</a>
-								</article>
-									<article>
-									<span class="image">
-											<img src="images/android.png" alt="" />
-									</span>
-									<a href="https://eif-courses.github.io/android">
-									
-									</a>
-								</article>
-								
-								<article>
-									<span class="image">
-											<img src="images/paternai.png" alt="" />
-									</span>
-									<a href="https://eif-courses.github.io/patterns">
-								
-									</a>
-								</article>
-								<article>
-									<span class="image">
-											<img src="images/praktika.png" alt="" />
-									</span>
-									<a href="https://eif-courses.github.io/pratybos">
-		
-									</a>
-								</article>
-								<article>
-									<span class="image">
-											<img src="images/diplomantai.png" alt="" />
-									</span>
-									<a href="https://eif-courses.github.io/diplomantams">
-								
-									</a>
-								</article>
-								
-							</section>
-						</div>
-					</div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 
-			
+    <!-- Bootstrap core CSS     -->
+    <link href="BS3/assets/css/bootstrap.min.css" rel="stylesheet"/>
 
-			</div>
- 
-		<!-- Scripts -->
-			<script src="assets/js/manup.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-			<script src="pwabuilder-sw-register.js"></script>
+    <!-- Animation library for notifications   -->
+    <link href="BS3/assets/css/animate.min.css" rel="stylesheet"/>
 
-	</body>
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="BS3/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet"/>
+
+
+    <!--     Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="BS3/assets/css/pe-icon-7-stroke.css" rel="stylesheet"/>
+
+
+    <style>
+        .flexContainer {
+            display: flex;
+        }
+
+        .inputField {
+            flex: 1;
+        }
+    </style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        input[type=password], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            float: left;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        .card .header {
+            padding: 15px 0px 0;
+        }
+
+
+    </style>
+
+
+    <style>
+
+
+        /*div {*/
+        /*border-radius: 5px;*/
+        /*background-color: #2196f303;*/
+        /*padding: 20px;*/
+        /*}*/
+
+        .pagination {
+            display: inline-block;
+            margin-top: -2px;
+            margin-bottom: -2px;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #2196f3;
+            color: white;
+            border: 1px solid #2196f3;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        .pagination_pogrupis {
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .pagination_pogrupis a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination_pogrupis a.active {
+            background-color: #2196f3;
+            color: white;
+            border: 1px solid #2196f3;
+        }
+
+        .pagination_pogrupis a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        .column {
+            float: left;
+
+            /* Should be removed. Only for demonstration */
+        }
+
+        .left {
+            width: 450px;
+        }
+
+        .right {
+            margin-left: 50px;
+            width: auto;
+        }
+
+        /* Clear floats after the columns */
+        /*.row:after {*/
+        /*content: "";*/
+        /*display: table;*/
+        /*clear: both;*/
+        /*}*/
+        #pakeitimai {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #pakeitimai td, #pakeitimai th {
+            border: 1px solid #ddd;
+            font-size: 12pt;
+            text-align: center;
+        }
+
+        #pakeitimai tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #pakeitimai tr:hover {
+            background-color: #ddd;
+        }
+
+        #pakeitimai th {
+
+            text-align: left;
+            font-size: 20pt;
+            background-color: #2196f3;
+            color: white;
+            padding: 10px;
+        }
+
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        /*.container input {*/
+        /*position: absolute;*/
+        /*opacity: 0;*/
+        /*cursor: pointer;*/
+        /*}*/
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .btn-group button {
+            background-color: #4CAF50; /* Green background */
+            border: 1px solid green; /* Green border */
+            color: white; /* White text */
+            padding: 10px 24px; /* Some padding */
+            cursor: pointer; /* Pointer/hand icon */
+            float: left; /* Float the buttons side by side */
+        }
+
+        /* Clear floats (clearfix hack) */
+        .btn-group:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .btn-group button:not(:last-child) {
+            border-right: none; /* Prevent double borders */
+        }
+
+        /* Add a background color on hover */
+        .btn-group button:hover {
+            background-color: #3e8e41;
+        }
+
+    </style>
+
+
+    <script src="jquery-1.10.2.js"></script>
+
+    <script src="pikaday.js"></script>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
+
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    Vilniaus kolegija, EIF
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="index.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>PAKEITIMAI</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="destytojai.html">
+                        <i class="pe-7s-user"></i>
+                        <p>DĖSTYTOJAI</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="grupes.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>GRUPĖS</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="pe-7s-science"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="pe-7s-rocket"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">LAIKINIEJI PAKEITIMAI</a>
+                </div>
+                <div class="collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li class="separator hidden-lg hidden-md"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="card w3-container" id="prisijungimo_forma">
+            <form>
+                <div class="row">
+
+                    <div class="col-75">
+                        <input type="text" id="firstname" name="firstname" placeholder="Prisijungimo vardas...">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-75">
+                        <input type="password" id="password" name="password" placeholder="Slaptažodis..">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button class="w3-button w3-green w3-large" type="submit"
+                            value="PRISIJUNGTI"
+                            id="prisijungti_prie_db" onclick="prisijungti()">PRISIJUNGTI
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="card w3-container">
+
+            <form method="post">
+                <label for="datepicker">Pakeitimo data</label>
+                <input type="text" id="datepicker" onchange="readAndDisplayData()">
+
+                <label for="paskaita">Kelinta paskaita</label>
+
+                <br/>
+
+                <div class="pagination" id="paskaita">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                </div>
+
+                <br/>
+                <!-- Grupės-->
+                <label for="grupes">Grupė</label>
+                <input list="grupes" type="text" id="grupe" onfocus="this.value=''">
+                <datalist id="grupes"></datalist>
+
+                <div class="pagination_pogrupis" id="pogrupis">
+                    <a href="#" class="active">abu</a>
+                    <a href="#">I pogrupis</a>
+                    <a href="#">II pogrupis</a>
+
+                </div>
+                <!---->
+                <!--Dėstytojai-->
+                <br/>
+                <label for="hosting-plan">Dėstytojas</label>
+                <input list="hosting-plan" type="text" id="destytojai" onfocus="this.value=''">
+                <datalist id="hosting-plan"></datalist>
+                <!---->
+                <!--Auditorijos-->
+                <label for="hosting-plan55">Auditorija</label>
+                <input list="hosting-plan55" type="text" id="auditorija" onfocus="this.value=''">
+                <datalist id="hosting-plan55"></datalist>
+                <!---->
+
+                <button style="margin-top: 10px" class="w3-button w3-large w3-green" type="submit" id="changes"
+                        value="Patvirtinti pakeitimą"
+                        onclick="myFunction()">Patvirtinti pakeitimą
+                </button>
+                <hr/>
+                <br/>
+
+            </form>
+
+        </div>
+
+
+
+        <table id="pakeitimai" class="table table-hover table-striped">
+
+        </table>
+
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    Marius Gžegoževskia, Vilniaus
+                    kolegija
+                </p>
+            </div>
+        </footer>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+    const dest =
+        ["Paskaitos nėra","Laisvi","J.Bautronis","M. Baltramaitienė"," V. Baltrūnienė","dr. G. Bražiūnas"," S. Brusokaitė"," S. Bučys"," R. Čenienė"," J. Čivilis"," A. Danilevičiūtė"," J. Daukševič"," G. Dmitrijev"," V. Dubovskaja"," E. Garla"," E. Gasiūnienė","dr. L. Gžegoževskė"," M. Gžegoževskis"," J. Helsvig"," J. Jablonskienė"," V. Judickaitė-Žukovskė"," A. Kirdeikienė","dr. J. Karaliūnaitė"," T. Kasperavičius"," M. Kiškytė", "I. Kojelytė", "dr. A. Kozič","dr. S. Kubilinskienė"," V. Kuklierius", "R. Laurinavičius","E. Leskauskaitė"," L. Kupčinskienė"," S. Levickienė"," dr. T. Liogienė","dr. M. Liogys"," I. Liušicyna"," L. Liubauskienė"," V. Liubinas"," J. Liutvinavičienė","dr. A. Lučun"," E. Mačerauskas"," J. Mačėnienė"," D. Matusevičus"," V. Matutis"," L. Mažeiko"," K. Mečinskaitė-Stankevič"," R. Mikonienė"," A. Morkūnienė"," V. Netikša"," A. Netikšienė"," D. Neverbickaitė"," N. Pozniak","dr. P. Ragulis"," O. Raudonė","A. Sadauskis"," A. Savickaitė"," D. Savulionis", "L. Savulionienė"," A. Slimanavičienė"," P. Šakalys","dr. I. Šileikienė"," T. Silvanavičius","dr. I. Tumasonienė", "dr. R. Tumasonis"," R. Urbonavičius"," I. Vaitkuvienė"," J. Vaičiulytė"," J. Vasaitienė"," S. Volosevičius","dr. A. Žemgulis"," J. Zailskas", "dr. A. Usovaitė"];
+    const aud =
+        ["Paskaitos nėra","Laisvi","209","210","222","305","307","309","311","313","314","315","317","318","320","324","326","328","330","335","401","403","404","406","408","410","412","413","414","416","417","420","422","301","104","104A","201","202","203","205","207","303","321","317A"];
+    //const grupes = ["EI16S", "IS16S", "KS16S", "PI16S", "EI16A", "IS16A", "IS16B", "IS16A, IS16B", "IR16A", "PI16A", "PI16B", "PI16A, PI16B", "KS16A", "KS16B", "KS16A, KS16B","EI16B", "EV16A", "TK16A", "EI17S", "IS17S", "PI17S", "KS17S", "EI17A", "IS17A", "IS17B", "IS17C", "IS17A, IS17B, IS17C", "KS17A", "KS17B", "KS17A, KS17B", "PI17A", "PI17B", "PI17C", "PI17D", "PI17E", "PI17A, PI17B, PI17C, PI17D", "TS17A", "EI18S", "IS18S", "KS18S", "PI18S", "EI18A", "EI18B", "EI18A, EI18B", "IS18A", "IS18B", "IS18C", "IS18A, IS18B, IS18C", "KS18A", "PI18A", "PI18B", "PI18C", "PI18D", "PI18E", "PI18A, PI18B, PI18C, PI18D"];
+    var grupes = [];
+    for (let i = 0; i < dest.length; i++) {
+        //console.log(dest[i]);
+        let optionNode = document.createElement("option");
+
+        // Set the value
+        optionNode.value = dest[i];
+        //optionNode.appendChild(document.createTextNode("$50 USD"));
+
+        // Add the optionNode to the datalist
+        document.getElementById("hosting-plan").appendChild(optionNode);
+    }
+
+    aud.sort();
+
+    for (let j = 0; j < aud.length; j++) {
+        //  console.log(aud[j]);
+        let optionNode2 = document.createElement("option");
+
+        // Set the value
+        optionNode2.value = aud[j];
+        //optionNode.appendChild(document.createTextNode("$50 USD"));
+
+        // Add the optionNode to the datalist
+        document.getElementById("hosting-plan55").appendChild(optionNode2);
+    }
+
+    for (let j = 0; j < grupes.length; j++) {
+        //  console.log(grupes[j]);
+        let optionNode2 = document.createElement("option");
+
+        // Set the value
+        optionNode2.value = grupes[j];
+        //optionNode.appendChild(document.createTextNode("$50 USD"));
+
+        // Add the optionNode to the datalist
+        document.getElementById("grupes").appendChild(optionNode2);
+    }
+
+    $(".pagination a").click(function () {
+        $('.pagination a').removeClass('active'); //Clear all checked class on .size
+        $(this).addClass('active'); //Add checked class to current clicked .siz
+    });
+    $(".pagination_pogrupis a").click(function () {
+        $('.pagination_pogrupis a').removeClass('active'); //Clear all checked class on .size
+        $(this).addClass('active'); //Add checked class to current clicked .siz
+    });
+
+
+    // init picker
+
+    let picker = new Pikaday(
+        {
+            field: document.getElementById('datepicker'),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2070, 12, 31),
+            yearRange: [2018, 2020]
+        });
+
+
+    // Initialize Firebase
+
+    const config = {
+        apiKey: "AIzaSyD-wYlcrhSHckPGXNJa2jiQn0AzSkjVEmg",
+        authDomain: "eaaweawe.firebaseapp.com",
+        databaseURL: "https://eaaweawe.firebaseio.com",
+        projectId: "eaaweawe",
+        storageBucket: "eaaweawe.appspot.com",
+        messagingSenderId: "125098122964"
+    };
+    firebase.initializeApp(config);
+
+    $(function() {
+        $("#prisijungimo_forma").hide();
+        const auth = firebase.auth();
+
+        if(auth != null){
+            console.log("user is loged in")
+        }
+        else{
+            console.log("user not loged in")
+        }
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                $("#prisijungimo_forma").hide();
+                // $("#stateofuser").text("PRISIJUNGES");
+                //document.getElementById("btnLogOut").classList.remove('hide');
+            } else {
+                //$("#stateofuser").text("PRISIJUNKITE");
+                //document.getElementById("btnLogOut").classList.add('hide');
+                $("#prisijungimo_forma").show();
+            }
+        });
+
+
+        // ISTRINTI GRUPE
+        const playersRef = firebase.database().ref("user-posts/");
+
+        playersRef.on('child_removed', snap => {
+
+            console.log('KAZKAS ISTRINE ELEM');
+            readAndDisplayData();
+
+        });
+
+        let remove = function(e){
+            e.preventDefault();
+            // e.stopPropogation();
+            // var key = $(this).data('key');
+            let destID = this.id;  // iraso id
+            if(confirm('Ar tikrai norite ištrinti šį įrašą?')){
+
+
+                //console.log(cc);
+                let playersRef = firebase.database().ref("user-posts/");
+
+                playersRef.once("value", function (data, prevChildKey) {
+                    playersRef.child(''+destID).remove()
+                        .then(function () {
+                            console.log("Remove succeeded.");
+                            readAndDisplayData();
+
+                        })
+                        .catch(function (error) {
+                            console.log("Remove failed: " + error.message)
+                        });
+
+                });
+                // firebase.database().ref("movies").child(key).remove();
+            }
+        };
+        $(document).on('click', '.btn-remove-key', remove);
+
+    });
+    // PABAIGA ISTRINTI
+
+
+    function prisijungti(){
+        //document.getElementById("prisijungti_prie_db").addEventListener('click', e => {
+        const email = document.getElementById("firstname").value;
+        const pass = document.getElementById("password").value;
+        const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+        console.log('logged in');
+        $("#prisijungimo_forma").hide();
+
+        promise.catch(e => {
+            console.log(e.massage)
+        });
+        //});
+    }
+</script>
+
+
+    <script>
+    function writeNewPost(date, destytojas, auditorija, grupe, paskaita) {
+        // A post entry.
+        let postData = {
+            date: date,
+            destytojas: destytojas,
+            auditorija: auditorija,
+            grupe: grupe,
+            starCount: 0,
+            paskaita: paskaita
+        };
+
+        // Get a key for a new Post.
+        let newPostKey = firebase.database().ref().child('archive').push().key;
+
+        // Write the new post's data simultaneously in the posts list and the user's post list.
+        let updates = {};
+        updates['/archive/' + newPostKey] = postData;
+        updates['/user-posts/' + newPostKey] = postData;
+
+        return firebase.database().ref().update(updates);
+    }
+    //    $('input#datepicker').val(picker.getDate());
+    picker.setDate(new Date());
+
+
+    // TODO - IMPLEMENT EXPORT FUNCTION PAKEITIMU and add PRINT BUTTON
+    function readAndDisplayData() {
+
+       document.getElementById("pakeitimai").innerHTML =
+            '<th>Paskaita</th>'+'<th>Grupė</th>'+'<th>Dėstytojas</th>'+'<th>Auditorija</th>'+'<th colspan="2">Data</th>';
+        const playersRef = firebase.database().ref("user-posts/");
+        //$("#customers tbody").text("");
+        playersRef.orderByChild("paskaita").on("child_added", function (data, prevChildKey) {
+            let newPlayer = data.val();
+
+            let pakeitimaiDiv = document.getElementById("pakeitimai");
+            // pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
+
+            if(newPlayer.date === picker.toString('YYYY-MM-DD')) {
+                pakeitimaiDiv.innerHTML += '<tr><td>' + newPlayer.paskaita + '</td><td>' + newPlayer.grupe +
+                    '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' +
+                    newPlayer.date + '</td><td>' +
+                    '<button type="button" class="btn-remove-key w3-button w3-red w3-large" data-key="-dsdsf-sample-key"' +
+                    'id="' +
+                    data.key + '"> Ištrinti' + '</button></td></tr>' + '\n';
+
+            }
+        });
+
+
+    }
+
+
+    function myFunction() {
+
+        let auditorija = document.getElementById("auditorija").value;
+        let destytojas = document.getElementById("destytojai").value;
+        let grupe = document.getElementById("grupe").value;
+        let paskaita = $('div#paskaita.pagination a.active').text(); //document.getElementById("paskaita").value;
+        let pogrupis = $('div#pogrupis.pagination_pogrupis a.active').text();
+
+
+        if(auditorija === "") { auditorija = "-"}
+        if(destytojas === ""){destytojas = "-"}
+        if(grupe === ""){grupe = "-"}
+
+        if(pogrupis === 'abu'){
+
+            writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, '<b>'+grupe+'</b>', paskaita);
+        }else{
+            writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija,
+                '<b>'+grupe+'</b> '+'('+pogrupis+')', paskaita);
+        }
+
+        readAndDisplayData();
+        // window.location.reload(true);
+        document.getElementById("auditorija").value = "";
+        document.getElementById("destytojai").value = "";
+        document.getElementById("grupe").value = "";
+        $('div#paskaita.pagination a').removeClass('active');
+        $('div#pogrupis.pagination_pogrupis a').removeClass('active');
+
+        $('div#paskaita.pagination a:first-child').addClass('active');
+        $('div#pogrupis.pagination_pogrupis a:first-child').addClass('active');
+
+    }
+
+    function printData()
+    {
+        var divToPrint=document.getElementById("pakeitimai");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+
+    $('#export').on('click',function(){
+        printData();
+    });
+    function grupiu_sarasas(){
+
+        const grupesREF = firebase.database().ref("grupes/");
+        grupesREF.orderByChild("pavadinimas").on('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+
+                let optionNode2 = document.createElement("option");
+                // Set the value
+                optionNode2.value = childData.pavadinimas;
+                //optionNode.appendChild(document.createTextNode("$50 USD"));
+
+                // Add the optionNode to the datalist
+                document.getElementById("grupes").appendChild(optionNode2);
+                //console.log(childData.pavadinimas);
+            });
+        });
+    }
+    grupiu_sarasas();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+<!--&lt;!&ndash;   Core JS Files   &ndash;&gt;-->
+<!--<script src="BS3/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>-->
+<!--<script src="BS3/assets/js/bootstrap.min.js" type="text/javascript"></script>-->
+
+<!--&lt;!&ndash;  Charts Plugin &ndash;&gt;-->
+<!--<script src="BS3/assets/js/chartist.min.js"></script>-->
+
+<!--&lt;!&ndash;  Notifications Plugin    &ndash;&gt;-->
+<!--<script src="BS3/assets/js/bootstrap-notify.js"></script>-->
+
+
+<!--&lt;!&ndash; Light Bootstrap Table Core javascript and methods for Demo purpose &ndash;&gt;-->
+<!--<script src="BS3/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>-->
+
+<!--&lt;!&ndash; Light Bootstrap Table DEMO methods, don't include it in your project! &ndash;&gt;-->
+<!--<script src="BS3/assets/js/demo.js"></script>-->
+
+
 </html>
